@@ -1,5 +1,4 @@
-class Player:
-
+Class Ball:
     def __init__(self, x = 100+random.random()*100, y = 0, vx = 0, vy = 0, g = 500, rad = 10, k = 0,5, i=1):
         self.x, self.y, self.vx, self.vy, self.g, self.rad, self.k, self.i = \
                 x, y, vx, vy, g, rad, k, i
@@ -29,3 +28,9 @@ class Player:
             if v.x[1] > 0:
                 v.x[1] = -k*v.x[1]
                 r.x[1] = 600-rad
+
+    def render(self, game):
+        """Draw Ball on the Game window"""
+        pygame.draw.circle(game.screen,
+                (self.color, self.color, self.color),
+                (int(self.x), int(self.y)), self.r)
